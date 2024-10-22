@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login form</title>
+    <style>
+        .fails
+        {
+        color:red;
+        }
+    </style>
+</head>
+<body>
+<h2>Custom Login Form</h2>
+<hr>
+<form th:action="@{/authenticateTheUser}" method="POST">
+
+    <div th:if="${param.error}">
+        <i class="fails">Sorry! You entered Invalid User name and password</i>
+
+
+    </div>
+
+    <div th:if="${param.logout}">
+        <i >You successfully logout</i>
+
+
+    </div>
+    <p>
+        UserName: <input type="text" name="username">
+    </p>
+
+    <p>
+        Password: <input type="password" name="password">
+    </p>
+
+    <p>
+        <input type="submit" value="Login">
+    </p>
+</form>
+</body>
+</html>
